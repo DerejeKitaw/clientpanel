@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//mhb added routing
+import { RouterModule, Routes } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientsComponent } from './components/clients/clients.component';
@@ -13,6 +16,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
+//mhb added inital routes
+const appRoutes: Routes = [
+  { path: '', component:DashboardComponent},
+  { path: 'register', component:RegisterComponent},
+  { path: 'login', component:LoginComponent}
+];  
 
 @NgModule({
   declarations: [
@@ -30,7 +40,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     PageNotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)    
   ],
   providers: [],
   bootstrap: [AppComponent]
