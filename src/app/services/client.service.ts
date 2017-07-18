@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Client } from '../models/Client';
 
 //angularfire
 import {AngularFireDatabase, FirebaseListObservable,FirebaseObjectObservable} from 'angularfire2/database';
 import {Observable } from 'rxjs';
+import { Client } from '../models/Client';
 
 @Injectable()
 export class ClientService {
@@ -12,7 +12,7 @@ export class ClientService {
 
   constructor(public af:AngularFireDatabase) 
   {
-    this.clients = this.af.list('/clients') as FirebaseListObservable<Client[]>; //as created in firebase "clients"
+    this.clients = this.af.list('/clients/clients') as FirebaseListObservable<Client[]>; //as created in firebase "clients"
   }
 
   getClients() {
