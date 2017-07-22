@@ -25,7 +25,7 @@
              [class.text-danger]="hasBalance"
              [class.text-success]="!hasBalance"
            >
-             {{client.balance | currency:"USD":true}}
+             {{client.balance | currency:'USD':true}}
            </span>
            <small>
              <a (click)="showBalanceUpdateInput = !showBalanceUpdateInput"><i class="fa fa-pencil"></i></a>
