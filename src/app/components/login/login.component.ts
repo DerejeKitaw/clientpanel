@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService:AuthService,
     private router:Router,
-    private _flashMessagesService: FlashMessagesService
+    private flashMessagesService: FlashMessagesService
 
   ) { }
 
@@ -31,17 +31,17 @@ export class LoginComponent implements OnInit {
     //a promise    
     this.authService.login(this.email,this.password)
       .then((res) => {
-        this._flashMessagesService.show('You are logged in', {cssClass: 'alert-success',timeout: 4000});
+        this.flashMessagesService.show('You are logged in', {cssClass: 'alert-success',timeout: 4000});
         this.router.navigate(['/']);
       })
       .catch((err) => {
-        this._flashMessagesService.show(err.message, {cssClass: 'alert-danger',timeout: 4000});
+        this.flashMessagesService.show(err.message, {cssClass: 'alert-danger',timeout: 4000});
         this.router.navigate(['/login']);
       });
   }
   onLogoutClick() {
       this.authService.logout();
-      this._flashMessagesService.show("You are logged out", {cssClass: 'alert-success',timeout: 4000});
+      this.flashMessagesService.show("You are logged out", {cssClass: 'alert-success',timeout: 4000});
       this.router.navigate(['/login']);
   }
 
