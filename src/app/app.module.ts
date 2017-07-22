@@ -37,7 +37,10 @@ const appRoutes: Routes = [
   { path: '', component:DashboardComponent},
   { path: 'register', component:RegisterComponent},
   { path: 'login', component:LoginComponent},
-  { path: 'add-client', component:AddClientComponent}
+  { path: 'add-client', component:AddClientComponent},
+  { path: 'client/:id',component:ClientDetailsComponent},
+  { path: 'edit-client/:id',component:EditClientComponent}
+  
 ];  
 
 export const firebaseConfig = {
